@@ -17,7 +17,6 @@ jobs:
         port: 22
         script: |
           cd /var/www/html/fabien/react-slides
-          git restore *
           git pull origin main
           git status
           npm install

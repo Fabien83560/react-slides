@@ -1,13 +1,14 @@
-export default function Button({ text, onClick, transparent, additionalClasses = "" }) {
+export default function Button({ text, onClick, transparent , textColor }) {
     let baseClasses = "py-2 px-4 rounded ";
     let styleClasses;
     if (transparent) {
-        styleClasses = `text-white bg-transparent hover:bg-blue-500 hover:text-white border border-blue-500 hover:border-transparent ${additionalClasses}`;
-    } else {
-        styleClasses = `bg-blue-500 text-white hover:bg-blue-700 ${additionalClasses}`;
+        styleClasses = `bg-transparent hover:bg-blue-500 hover:text-white border border-blue-500 hover:border-transparent`;
+    }
+    else {
+        styleClasses = `bg-blue-500 hover:bg-blue-700`;
     }
 
-    const combinedClasses = `${baseClasses} ${styleClasses}`;
+    const combinedClasses = `${baseClasses} ${styleClasses} ${textColor}`;
 
     return (
         <button className={combinedClasses} onClick={onClick}>

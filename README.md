@@ -1,1 +1,1 @@
-# React - Slides
+# react-slides

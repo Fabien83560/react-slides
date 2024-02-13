@@ -6,6 +6,7 @@ import Button from "./Button";
 export default function ToolBar() {
     const { isFullScreen, toggleFullScreen } = useFullScreen();
     const { currentSlide, maxSlides, goToSlide, incrementCurrentSlide, decrementCurrentSlide } = useSlideCount();
+    const [isVisible, setIsVisible] = useState(false);
     const [inputShown, setInputShown] = useState(false);
     const [inputValue, setInputValue] = useState(currentSlide);
 
@@ -45,7 +46,7 @@ export default function ToolBar() {
         }
     };
 
-    let addStyle = "";
+    let addStyle = isVisible ? "bg-gray-700 py-3" : "hidden";
     if (!isFullScreen) {
         addStyle = "bg-gray-700 py-3";
     }

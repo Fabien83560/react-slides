@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useFullScreen } from '../context/FullScreenContext';
+import { useFullScreen } from '../context/FullScreenContext.jsx';
+import { useSlideCount } from '../context/SlideCountContext';
 import Button from "./Button";
 
 export default function ToolBar() {
     const { isFullScreen , toggleFullScreen  } = useFullScreen();
+    const { currentSlide, maxSlides, goToSlide } = useSlideCount();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -36,11 +38,11 @@ export default function ToolBar() {
             <div className="flex justify-between items-center w-full px-10">
                 <Button text={(isFullScreen) ? "Exit Full Screen" : "Full Screen"} onClick={toggleFullScreen} transparent={true} textColor={butttonTextColor} />
                 <div className="flex gap-2">
-                    <Button text="<<" transparent={true} textColor={butttonTextColor} />
-                    <Button text="<" transparent={true} textColor={butttonTextColor} />
-                    <Button text="1/10" transparent={true} textColor={butttonTextColor} />
-                    <Button text=">" transparent={true} textColor={butttonTextColor} />
-                    <Button text=">>" transparent={true} textColor={butttonTextColor} />
+                    <Button onClick={() => goToSlide(1)} text="<<" transparent={true} textColor={butttonTextColor} />
+                    <Button onClick={() => goToSlide(currentSlide - 1)} text="<" transparent={true} textColor={butttonTextColor} />
+                    <Button text={`${currentSlide}/${maxSlides}`} transparent={true} textColor={butttonTextColor} />
+                    <Button onClick={() => goToSlide(currentSlide + 1)} text=">" transparent={true} textColor={butttonTextColor} />
+                    <Button onClick={() => goToSlide(maxSlides)} text=">>" transparent={true} textColor={butttonTextColor} />
                 </div>
 
                 <Button text="Settings" transparent={true} textColor={butttonTextColor} />

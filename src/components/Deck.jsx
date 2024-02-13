@@ -23,20 +23,20 @@ export default function Deck() {
 
     const slides = [
         <Slide key={0}>
-            <Title text="Voici un Titre 1" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image très jolie 1" />
+            <Title text="Voici un Titre à gauche" position="left" />
+            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" />
         </Slide>,
         <Slide key={1}>
-            <Title text="Voici un Titre 2" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image très jolie 2" />
+            <Title text="Voici un Titre au centre" position="center" />
+            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
         </Slide>,
         <Slide key={2}>
-            <Title text="Voici un Titre 3" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image très jolie 3" />
+            <Title text="Voici un Titre à gauche" position="left" />
+            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
         </Slide>,
         <Slide key={3}>
-            <Title text="Voici un Titre 4" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image très jolie 4" />
+            <Title text="Voici un Titre au centre" position="center" />
+            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à centre" position="center" />
         </Slide>
     ];
 

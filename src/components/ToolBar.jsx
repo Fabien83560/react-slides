@@ -5,7 +5,7 @@ import Button from "./Button";
 
 export default function ToolBar() {
     const { isFullScreen , toggleFullScreen  } = useFullScreen();
-    const { currentSlide, maxSlides, goToSlide } = useSlideCount();
+    const { currentSlide, maxSlides, goToSlide, incrementCurrentSlide, decrementCurrentSlide } = useSlideCount();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -39,9 +39,9 @@ export default function ToolBar() {
                 <Button text={(isFullScreen) ? "Exit Full Screen" : "Full Screen"} onClick={toggleFullScreen} transparent={true} textColor={butttonTextColor} />
                 <div className="flex gap-2">
                     <Button onClick={() => goToSlide(1)} text="<<" transparent={true} textColor={butttonTextColor} />
-                    <Button onClick={() => goToSlide(currentSlide - 1)} text="<" transparent={true} textColor={butttonTextColor} />
+                    <Button onClick={() => decrementCurrentSlide()} text="<" transparent={true} textColor={butttonTextColor} />
                     <Button text={`${currentSlide}/${maxSlides}`} transparent={true} textColor={butttonTextColor} />
-                    <Button onClick={() => goToSlide(currentSlide + 1)} text=">" transparent={true} textColor={butttonTextColor} />
+                    <Button onClick={() => incrementCurrentSlide()} text=">" transparent={true} textColor={butttonTextColor} />
                     <Button onClick={() => goToSlide(maxSlides)} text=">>" transparent={true} textColor={butttonTextColor} />
                 </div>
 

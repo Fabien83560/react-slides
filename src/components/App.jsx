@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; // Importer useEffect
+import React, { useEffect } from 'react';
 import Deck from "./Deck.jsx";
 import ToolBar from "./ToolBar.jsx";
 import { useSlideCount } from '../context/SlideCountContext';

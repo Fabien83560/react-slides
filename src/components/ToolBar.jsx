@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useFullScreen } from '../context/FullScreenContext.jsx';
 import { useSlideCount } from '../context/SlideCountContext';
+import { useShowSlideNumber } from '../context/ShowSlideNumberContext.jsx';
 import Button from "./Button";
 
 export default function ToolBar() {
     const { isFullScreen, toggleFullScreen } = useFullScreen();
     const { currentSlide, maxSlides, goToSlide, incrementCurrentSlide, decrementCurrentSlide } = useSlideCount();
+    const { toggleShowSlideNumber } = useShowSlideNumber();
     const [isVisible, setIsVisible] = useState(false);
     const [inputShown, setInputShown] = useState(false);
     const [inputValue, setInputValue] = useState(currentSlide);
@@ -81,7 +83,7 @@ export default function ToolBar() {
                     <Button onClick={() => goToSlide(maxSlides)} text=">>" transparent={true} textColor={buttonTextColor} />
                 </div>
 
-                <Button text="Settings" transparent={true} textColor={buttonTextColor} />
+                <Button text="Hide Slide Number" onClick={toggleShowSlideNumber} transparent={true} textColor={buttonTextColor} />
             </div>
         </nav>
     );

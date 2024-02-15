@@ -14,6 +14,7 @@ import Image from "./Image.jsx";
 import Title from "./Title";
 import Figure from './Figure.jsx';
 import Paragraph from './Paragraph.jsx';
+import BulletedList from './BulletedList.jsx';
 
 export default function Deck() {
     const { isFullScreen } = useFullScreen();
@@ -43,6 +44,9 @@ export default function Deck() {
         </Slide>,
         <Slide>
             <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. Proin blandit sit amet velit dictum fermentum. Sed pellentesque condimentum dolor quis consequat. Maecenas gravida efficitur tellus, nec pellentesque enim facilisis luctus. Aenean scelerisque, lacus vel accumsan pellentesque, lectus tellus blandit purus, quis molestie diam eros quis sapien. Duis eu maximus justo, ac rutrum leo. Quisque posuere auctor lacus, et interdum eros interdum sit amet. Nunc sed nisl vel neque rutrum sollicitudin. "/>
+        </Slide>,
+        <Slide>
+            <BulletedList tabElement={["value1","value2","value3"]}/>
         </Slide>
 
     ];

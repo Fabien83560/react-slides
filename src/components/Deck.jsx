@@ -8,9 +8,10 @@ import Mosaique from './Mosaique.jsx';
 import '../css/custom-animation.css';
 
 // Add your own import
-import Image from "./Image";
+import Image from "./Figure.jsx";
 import Title from "./Title";
 import presentationImg from "../assets/presentation.png";
+import Figure from './Figure.jsx';
 
 export default function Deck() {
     const { isFullScreen } = useFullScreen();
@@ -23,19 +24,19 @@ export default function Deck() {
     const slides = [
         <Slide key={0}>
             <Title text="Voici un Titre à gauche" position="left" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" />
+            <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" />
         </Slide>,
         <Slide key={1}>
             <Title text="Voici un Titre au centre" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
+            <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
         </Slide>,
         <Slide key={2}>
             <Title text="Voici un Titre à gauche" position="left" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
+            <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
         </Slide>,
         <Slide key={3}>
             <Title text="Voici un Titre au centre" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" text="Voici une image à centre" position="center" />
+            <Image filePath={presentationImg} imgName="Presentation" position="left" />
         </Slide>
     ];
 

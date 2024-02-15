@@ -4,7 +4,6 @@ import { useFullScreen } from '../context/FullScreenContext';
 import { useSlideCount } from '../context/SlideCountContext';
 import { useShowSlideNumber } from '../context/ShowSlideNumberContext.jsx';
 import Slide from "./Slide.jsx";
-import ToolBar from "./ToolBar.jsx";
 import Mosaique from './Mosaique.jsx';
 import '../css/custom-animation.css';
 
@@ -16,6 +15,7 @@ import Figure from './Figure.jsx';
 import Paragraph from './Paragraph.jsx';
 import List from './List.jsx';
 import Table from './Table.jsx';
+import TwoColumn from './TwoColumn.jsx';
 
 export default function Deck() {
     const { isFullScreen } = useFullScreen();
@@ -62,6 +62,17 @@ export default function Deck() {
                                 ["4.1","4.2","4.3","4.4","4.5","4.6"],
                                 ["5.1","5.2","5.3","5.4","5.5","5.6"],
                                 ["6.1","6.2","6.3","6.4","6.5","6.6"]]}/>
+        </Slide>,
+        <Slide>
+            <TwoColumn 
+            leftColumn={[
+                <Title text="Voici un Titre au centre" position="center" />,
+                <Image filePath={presentationImg} imgName="Presentation" position="left" />
+            ]}
+            rightColumn={[
+                <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. Proin blandit sit amet velit dictum fermentum. Sed pellentesque condimentum dolor quis consequat. Maecenas gravida efficitur tellus, nec pellentesque enim facilisis luctus. Aenean scelerisque, lacus vel accumsan pellentesque, lectus tellus blandit purus, quis molestie diam eros quis sapien. Duis eu maximus justo, ac rutrum leo. Quisque posuere auctor lacus, et interdum eros interdum sit amet. Nunc sed nisl vel neque rutrum sollicitudin. "/>
+            ]}
+            />
         </Slide>
 
     ];
@@ -89,7 +100,6 @@ export default function Deck() {
                 {slides[currentSlide - 1]}
             </div>
             <Mosaique slides={slides} />
-            <ToolBar />
         </div>
     );
 }

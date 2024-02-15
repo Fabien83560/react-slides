@@ -1,5 +1,6 @@
 import { FullScreenProvider } from '../context/FullScreenContext.jsx';
 import { SlideCountProvider } from '../context/SlideCountContext.jsx';
+import { ShowSlideNumberProvider } from '../context/ShowSlideNumberContext.jsx';
 import App from './App.jsx';
 
 export default function Context() {
@@ -7,7 +8,9 @@ export default function Context() {
         <>
             <FullScreenProvider>
                 <SlideCountProvider>
-                    <App />
+                    <ShowSlideNumberProvider>
+                        <App />
+                    </ShowSlideNumberProvider>
                 </SlideCountProvider>
             </FullScreenProvider>
         </>

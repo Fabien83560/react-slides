@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState } from 'react';
 
 const SlideCountContext = createContext();
 
+export const useSlideCount = () => useContext(SlideCountContext);
+
 export const SlideCountProvider = ({ children }) => {
     const [currentSlide, setCurrentSlide] = useState(1);
     const [maxSlides, setMaxSlides] = useState(1);
@@ -44,5 +46,3 @@ export const SlideCountProvider = ({ children }) => {
         </SlideCountContext.Provider>
     );
 };
-
-export const useSlideCount = () => useContext(SlideCountContext);

@@ -3,12 +3,11 @@ import { useEffect, useState } from 'react';
 import { useFullScreen } from '../context/FullScreenContext';
 import { useSlideCount } from '../context/SlideCountContext';
 import { useShowSlideNumber } from '../context/ShowSlideNumberContext.jsx';
-import Slide from "./Slide.jsx";
-import Mosaique from './Mosaique.jsx';
 import '../css/custom-animation.css';
 
 // Add your own import
 import presentationImg from "../assets/presentation.png";
+import Slide from "./Slide.jsx";
 import Image from "./Image.jsx";
 import Title from "./Title";
 import Figure from './Figure.jsx';
@@ -28,20 +27,20 @@ export default function Deck() {
 
     const slides = [
         <Slide>
-            <Title text="Voici un Titre à gauche" position="left" />
-            <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" />
+            <Title text="Voici un Titre à gauche" position="left" size={6} />
+            <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" textSize={6}/>
         </Slide>,
         <Slide>
-            <Title text="Voici un Titre au centre" position="center" />
+            <Title text="Voici un Titre au centre" position="center" size={4} />
             <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
         </Slide>,
         <Slide>
-            <Title text="Voici un Titre à gauche" position="left" />
+            <Title text="Voici un Titre à gauche" position="left" size={4} />
             <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
         </Slide>,
         <Slide>
-            <Title text="Voici un Titre au centre" position="center" />
-            <Image filePath={presentationImg} imgName="Presentation" position="left" />
+            <Title text="Voici un Titre au centre" position="center" size={9} />
+            <Image filePath={presentationImg} imgName="Presentation" position="left" size={32} />
         </Slide>,
         <Slide>
             <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. Proin blandit sit amet velit dictum fermentum. Sed pellentesque condimentum dolor quis consequat. Maecenas gravida efficitur tellus, nec pellentesque enim facilisis luctus. Aenean scelerisque, lacus vel accumsan pellentesque, lectus tellus blandit purus, quis molestie diam eros quis sapien. Duis eu maximus justo, ac rutrum leo. Quisque posuere auctor lacus, et interdum eros interdum sit amet. Nunc sed nisl vel neque rutrum sollicitudin. "/>
@@ -66,7 +65,7 @@ export default function Deck() {
         <Slide>
             <TwoColumn 
             leftColumn={[
-                <Title text="Voici un Titre au centre" position="center" />,
+                <Title text="Voici un Titre au centre" position="center" size={2} />,
                 <Image filePath={presentationImg} imgName="Presentation" position="left" />
             ]}
             rightColumn={[
@@ -74,7 +73,6 @@ export default function Deck() {
             ]}
             />
         </Slide>
-
     ];
 
     useEffect(() => {
@@ -99,7 +97,6 @@ export default function Deck() {
             <div key={animationKey} className={`absolute w-full h-full ${animationDirection}`}>
                 {slides[currentSlide - 1]}
             </div>
-            <Mosaique slides={slides} />
         </div>
     );
 }

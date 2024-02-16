@@ -1,6 +1,10 @@
-export default function Title({ text, position = "left" }) {
-    let combinedStyle = `text-7xl ${position === "left" ? "text-left" : position === "center" ? "text-center" : "text-right"}`;
+import classNames from "classnames";
+import { textStyle , textPositionStyle } from "../css/style";
+
+export default function Title({ text, position = "center" , size = 5 }) {
+    
+    let containerStyle = classNames(`${textStyle[size]} ${textPositionStyle[position]}`);
     return (
-        <h1 className={combinedStyle}>{text}</h1>
+        <h1 className={containerStyle}>{text}</h1>
     );
 }

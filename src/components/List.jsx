@@ -1,8 +1,11 @@
+import classNames from "classnames";
+import { listStyle } from "../css/style";
+
 export default function List({ tabElement , type }) {
-    let listStyle = (type == "bulleted" ? "list-disc" : (type == "decimal" ? "list-decimal" : ""));
+    let containerStyle = classNames(`${listStyle[type]}`);
 
     return (
-        <ul className={listStyle}>
+        <ul className={containerStyle}>
             {tabElement.map((element, index) => (
                 <li key={index}>{element}</li>
             ))}

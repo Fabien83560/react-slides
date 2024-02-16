@@ -1,5 +1,9 @@
-export default function Image({ filePath, imgName = "", position }) {
-    let containerStyle = `flex flex-col ${position === "left" ? "items-start" : position === "center" ? "items-center" : "items-end"} `;
+import classNames from "classnames";
+
+import {imageStyle, itemPositionStyle} from '../css/style.js'
+
+export default function Image({ filePath, imgName = "", position = "center" , size = 32 }) {
+    let containerStyle = classNames(`flex flex-col ${imageStyle[size]} ${itemPositionStyle[position]}`);
     return (
         <img src={filePath} alt={imgName} className={containerStyle} />
     );

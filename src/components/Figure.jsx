@@ -1,13 +1,13 @@
+import classNames from "classnames";
 import Image from './Image.jsx'
+import { itemPositionStyle , textStyle } from "../css/style.js";
 
-export default function Figure({ filePath, imgName = "", text, position }) {
-    let containerStyle = `flex flex-col ${position === "left" ? "items-start" : position === "center" ? "items-center" : "items-end"} w-full`;
-    let textStyle = `text-sm`;
-
+export default function Figure({ filePath, imgName = "", text, position, textSize = 2, imgSize }) {
+    let containerStyle = classNames(`flex flex-col w-full ${itemPositionStyle[position]} ${textStyle[textSize]}`);
     return (
         <div className={containerStyle}>
-            <Image filePath={filePath} imgName={imgName} />
-            <p className={textStyle}>{text}</p>
+            <Image filePath={filePath} imgName={imgName} size={imgSize}/>
+            <p>{text}</p>
         </div>
     );
 }

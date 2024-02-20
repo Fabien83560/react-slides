@@ -16,6 +16,7 @@ import Paragraph from './Paragraph.jsx';
 import List from './List.jsx';
 import Table from './Table.jsx';
 import TwoColumn from './TwoColumn.jsx';
+import Markdown from './Markdown.jsx';
 
 export default function Deck() {
     const { isFullScreen } = useFullScreen();
@@ -94,11 +95,14 @@ export default function Deck() {
                 rightColumn={[
                     <Title text="Voici les couleurs de background" />,
                     ...Object.keys(textColorStyle).map(colorName => (
-                        <Paragraph text={colorName} textColor={colorName} backgroundColor={colorName} size={16} />
+                        <Paragraph text={colorName} textColor="white" backgroundColor={colorName} size={16} />
                     ))
                 ]}
             />
-        </Slide>    
+        </Slide>,
+        <Slide>
+            <Markdown />
+        </Slide>  
     ];
 
     useEffect(() => {

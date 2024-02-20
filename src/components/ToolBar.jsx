@@ -40,11 +40,21 @@ export default function ToolBar() {
     };
 
     const handleInputKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            const pageNumber = Math.max(1, Math.min(maxSlides, Number(inputValue)));
-            goToSlide(pageNumber);
-            setInputShown(false);
+        switch (e.key) {
+            case 'Enter':
+                e.preventDefault();
+                const pageNumber = Math.max(1, Math.min(maxSlides, Number(inputValue)));
+                goToSlide(pageNumber);
+                setInputShown(false);
+                break;
+            case 'ArrowLeft':
+                decrementCurrentSlide();
+                break;
+            case 'ArrowRight':
+                incrementCurrentSlide();
+                break;
+            default:
+                break;
         }
     };
 
@@ -67,7 +77,7 @@ export default function ToolBar() {
                             type="number"
                             value={inputValue}
                             onChange={handleInputChange}
-                            onKeyPress={handleInputKeyPress}
+                            onKeyDown={handleInputKeyPress}
                             className="text-lg p-2 border rounded"
                             autoFocus
                         />

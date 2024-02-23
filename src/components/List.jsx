@@ -1,8 +1,8 @@
 import classNames from "classnames";
-import { listStyle } from "../css/style";
+import { listStyle, textColorStyle, backgroundColorStyle } from "../css/style";
 
-export default function List({ tabElement , type }) {
-    let containerStyle = classNames(`${listStyle[type]}`);
+export default function List({ tabElement , type , textColor , backgroundColor }) {
+    let containerStyle = classNames(`list-inside ${listStyle[type]} ${textColorStyle[textColor]} ${backgroundColorStyle[backgroundColor]}`);
 
     return (
         <ul className={containerStyle}>

@@ -23,7 +23,7 @@ console.log(example);
 
 [Un lien](http://example.com)
 
-![Une image](../assets/presentation.png)
+![Une image](/src/assets/presentation.png)
 
 **Texte en gras** et *texte en italique*.
 

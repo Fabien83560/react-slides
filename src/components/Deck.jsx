@@ -4,7 +4,7 @@ import { useFullScreen } from '../context/FullScreenContext';
 import { useSlideCount } from '../context/SlideCountContext';
 import { useShowSlideNumber } from '../context/ShowSlideNumberContext.jsx';
 import '../css/custom-animation.css';
-import { textColorStyle, backgroundColorStyle } from '../css/style.js';
+import { textColorStyle } from '../css/style.js';
 
 // Add your own import
 import presentationImg from "../assets/presentation.png";
@@ -119,7 +119,7 @@ export default function Deck() {
         setPrevSlide(currentSlide);
     }, [currentSlide]);
     
-    const deckStyle = isFullScreen ? "m-0 shadow-none h-[95vh] overscroll-none" : "m-10 shadow-2xl h-[82vh] overscroll-none";
+    const deckStyle = isFullScreen ? "m-0 shadow-none h-[95vh] overscroll-none" : "m-10 shadow-2xl h-[70vh] overscroll-none";
 
     return (
         <div className={`${deckStyle} relative overflow-hidden`}>

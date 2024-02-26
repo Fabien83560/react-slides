@@ -14,7 +14,7 @@ export default function Mosaique() {
     };
 
     return (
-        <div className="bottom-0 left-0 right-0 z-10 py-2">
+        <div className="fixed bottom-20 left-0 right-0 z-10 py-2">
             <div className="flex justify-between items-center mx-4">
                 <button className="p-1 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-800" onClick={() => scrollSlides(-1)}>
                     &#10094;

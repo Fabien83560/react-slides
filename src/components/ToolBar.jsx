@@ -58,6 +58,23 @@ export default function ToolBar() {
         }
     };
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowLeft') {
+                decrementCurrentSlide();
+            }
+            else if (e.key === 'ArrowRight') {
+                incrementCurrentSlide();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [incrementCurrentSlide, decrementCurrentSlide]);
+
     let addStyle = isVisible ? "bg-gray-700 py-3" : "hidden";
     if (!isFullScreen) {
         addStyle = "bg-gray-700 py-3";

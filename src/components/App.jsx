@@ -145,21 +145,38 @@ greet("World");
         () =>   <Slide>
                     <Title text={"Voici le Composant permettant d'afficher du code"} size={8}/>
                     <br/>
-                    <Code code={
+                    <Code language="cpp" theme="" code={
 `
-import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+#include <iostream>
+#include <string>
 
-export default function Code({ code, language = 'javascript' }) {
-    return (
-        <SyntaxHighlighter language={language} style={dark}>
-            {code}
-        </SyntaxHighlighter>
-    );
-}
+class Voiture {
+private:
+    std::string marque;
+    std::string modele;
+    int annee;
+
+public:
+    Voiture(std::string m, std::string mod, int an) : marque(m), modele(mod), annee(an) {}
+
+    std::string getMarque() const {
+        return marque;
+    }
+
+    void setMarque(const std::string &m) {
+        marque = m;
+    }
+
+    std::string getModele() const {
+        return modele;
+    }
+
+    void setModele(const std::string &mod) {
+        modele = mod;
+    }
+};
 `
-                    } language="javascript"/>
+                    }/>
                 </Slide>
     ];
 

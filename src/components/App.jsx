@@ -20,6 +20,7 @@ import Table from './Table.jsx';
 import TwoColumn from './TwoColumn.jsx';
 import Markdown from './Markdown.jsx';
 import Mosaique from "./Mosaique.jsx";
+import Code from "./Code.jsx";
 
 export default function App() {
     const slides = [ 
@@ -114,8 +115,10 @@ Ceci est un paragraphe en **Markdown**!
 ### Un peu de code
 
 \`\`\`javascript
-const example = "Ceci est un exemple de code";
-console.log(example);
+function greet(name) {
+    console.log("Hello, " + name + "!");
+}
+greet("World");
 \`\`\`
 
 > Ceci est une citation.
@@ -138,6 +141,23 @@ console.log(example);
                         }/>
                     }
                     />
+                </Slide>,
+        () =>   <Slide>
+                    <Code code={
+`
+import React from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+
+export default function Code({ code, language = 'javascript' }) {
+    return (
+        <SyntaxHighlighter language={language} style={dark}>
+            {code}
+        </SyntaxHighlighter>
+    );
+}
+`
+                    } language="javascript"/>
                 </Slide>
     ];
 

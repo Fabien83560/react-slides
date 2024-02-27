@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function Markdown({ markdownText }) {
 
@@ -19,10 +21,16 @@ export default function Markdown({ markdownText }) {
         img: ({node, ...props}) => <img className="my-4 mx-auto" {...props} />,
         blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-gray-500 pl-4 italic my-4" {...props} />,
         code: ({node, inline, className, children, ...props}) => {
-            if (inline) {
-                return <code className="bg-gray-200 px-2 py-1 rounded text-sm" {...props}>{children}</code>;
-            }
-            return <pre className="bg-gray-900 text-white p-4 rounded-md overflow-x-auto my-4"><code className="whitespace-pre-wrap" {...props}>{children}</code></pre>;
+            const match = /language-(\w+)/.exec(className || '');
+            return !inline && match ? (
+                <SyntaxHighlighter style={dark} language={match[1]} PreTag="div" {...props}>
+                    {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
+            ) : (
+                <code className="bg-gray-200 px-2 py-1 rounded text-sm" {...props}>
+                    {children}
+                </code>
+            );
         },
         em: ({node, ...props}) => <em className="italic" {...props} />,
         strong: ({node, ...props}) => <strong className="font-bold" {...props} />,

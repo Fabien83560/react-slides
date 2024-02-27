@@ -5,7 +5,7 @@ import { useShowSlideNumber } from '../context/ShowSlideNumberContext.jsx';
 import Button from "./Button";
 
 export default function ToolBar() {
-    const { isFullScreen, toggleFullScreen } = useFullScreen();
+    const { isFullScreen, toggleFullScreen, setIsFullScreen } = useFullScreen();
     const { currentSlide, maxSlides, goToSlide, incrementCurrentSlide, decrementCurrentSlide } = useSlideCount();
     const { toggleShowSlideNumber } = useShowSlideNumber();
     const [isVisible, setIsVisible] = useState(false);
@@ -47,12 +47,6 @@ export default function ToolBar() {
                 goToSlide(pageNumber);
                 setInputShown(false);
                 break;
-            case 'ArrowLeft':
-                decrementCurrentSlide();
-                break;
-            case 'ArrowRight':
-                incrementCurrentSlide();
-                break;
             default:
                 break;
         }
@@ -60,20 +54,34 @@ export default function ToolBar() {
 
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (e.key === 'ArrowLeft') {
-                decrementCurrentSlide();
-            }
-            else if (e.key === 'ArrowRight') {
-                incrementCurrentSlide();
+            switch(e.key) {
+                case 'ArrowLeft':
+                    decrementCurrentSlide();
+                    break;
+                case 'ArrowRight':
+                    incrementCurrentSlide();
+                    break;
+                case 'Escape':
+                    if (isFullScreen) {
+                        setIsFullScreen(false);
+                    }
+                    break;
+                case 'F11':
+                    e.preventDefault();
+                    toggleFullScreen();
+                    break;
+                default:
+                    break;
             }
         };
-
+    
         window.addEventListener('keydown', handleKeyDown);
-
+    
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, [incrementCurrentSlide, decrementCurrentSlide]);
+    }, [incrementCurrentSlide, decrementCurrentSlide, isFullScreen, setIsFullScreen, toggleFullScreen]);
+    
 
     let addStyle = isVisible ? "bg-gray-700 py-3" : "hidden";
     if (!isFullScreen) {

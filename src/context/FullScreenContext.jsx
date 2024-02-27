@@ -12,7 +12,7 @@ export const FullScreenProvider = ({ children }) => {
     const toggleFullScreen = () => setIsFullScreen(!isFullScreen);
 
     return (
-        <FullScreenContext.Provider value={{ isFullScreen, toggleFullScreen }}>
+        <FullScreenContext.Provider value={{ isFullScreen, toggleFullScreen, setIsFullScreen }}>
             {children}
         </FullScreenContext.Provider>
     );

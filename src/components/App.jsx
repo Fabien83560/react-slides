@@ -25,20 +25,20 @@ import Code from "./Code.jsx";
 export default function App() {
     const slides = [ 
         () =>   <Slide>
-                    <Title text="Voici un Titre à gauche" position="left" size={6} textColor="yellow" backgroundColor="red" />
-                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" textSize={6} textColor="lightBlue" backgroundColor="purple" />
+                    <Title text="Voici un Titre à gauche" align="left" size={6} textColor="yellow" backgroundColor="red" />
+                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" align="left" textSize={6} textColor="lightBlue" backgroundColor="purple" />
                 </Slide>,
         () =>   <Slide>
-                    <Title text="Voici un Titre au centre" position="center" size={4} />
-                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
+                    <Title text="Voici un Titre au centre" align="center" size={4} />
+                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" align="right" />
                 </Slide>,
         () =>   <Slide>
-                    <Title text="Voici un Titre à gauche" position="left" size={4} />
-                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" position="right" />
+                    <Title text="Voici un Titre à gauche" align="left" size={4} />
+                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" align="right" />
                 </Slide>,
         () =>   <Slide>
-                    <Title text="Voici un Titre au centre" position="center" size={9} />
-                    <Image filePath={presentationImg} imgName="Presentation" position="left" size={32} />
+                    <Title text="Voici un Titre au centre" align="center" size={9} />
+                    <Image filePath={presentationImg} imgName="Presentation" align="left" size={32} />
                 </Slide>,
         () =>   <Slide>
                     <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. 
@@ -67,11 +67,11 @@ export default function App() {
         () =>   <Slide>
                     <TwoColumn 
                     leftColumn={[
-                        <Title text="Voici un Titre au centre" position="center" size={2} />,
-                        <Image filePath={presentationImg} imgName="Presentation" position="left" backgroundColor="lightBlue" />
+                        <Title text="Voici un Titre au centre" align="center" size={2} />,
+                        <Image filePath={presentationImg} imgName="Presentation" align="left" backgroundColor="lightBlue" />
                     ]}
                     rightColumn={[
-                        <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" position="left" textSize={6} textColor="lightBlue" backgroundColor="purple" imgBackgroundColor="yellow" />,
+                        <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" align="left" textSize={6} textColor="lightBlue" backgroundColor="purple" imgBackgroundColor="yellow" />,
                         <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. 
                         Proin blandit sit amet velit dictum fermentum. Sed pellentesque condimentum dolor quis consequat. Maecenas gravida efficitur tellus, 
                         nec pellentesque enim facilisis luctus. Aenean scelerisque, lacus vel accumsan pellentesque, lectus tellus blandit purus, 
@@ -97,7 +97,7 @@ export default function App() {
                     />
                 </Slide>,
         () =>   <Slide>
-            <Title text={"Voici une page en Markdown"} size={8} position="center"/>
+            <Title text={"Voici une page en Markdown"} size={8} align="center"/>
                     <TwoColumn 
                     leftColumn={
                         <Markdown markdownText={
@@ -143,6 +143,8 @@ greet("World");
                     />
                 </Slide>,
         () =>   <Slide>
+                    <Title text={"Voici le Composant permettant d'afficher du code"} size={8}/>
+                    <br/>
                     <Code code={
 `
 import React from 'react';

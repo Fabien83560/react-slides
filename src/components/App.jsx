@@ -23,78 +23,35 @@ import Mosaique from "./Mosaique.jsx";
 import Code from "./Code.jsx";
 
 export default function App() {
-    const slides = [ 
+    const slides = [
         () =>   <Slide>
-                    <Title text="Voici un Titre à gauche" align="left" size={6} textColor="yellow" backgroundColor="red" />
-                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" align="left" textSize={6} textColor="lightBlue" backgroundColor="purple" />
+                    <Title text={"Outil de Présentation"}
+                           size={10}
+                           horizontal={50} />
+                    <Image filePath={presentationImg}
+                            size={56}
+                            horizontal="40"
+                            vertical={20}/>
+                    <Paragraph text={"Sur cette présentation, vous trouverez des exemples d'utilisations de cet outil. Cette présentation a aussi été réalisé a l'aide de l'outil."} 
+                            size={6}
+                            vertical="80"
+                            horizontal="50" />
+                    <TwoColumn
+                        leftColumn={
+                            <Paragraph text={"Cet outil a été réalisé par ORTEGA Fabien"}
+                                       size={4}
+                                       vertical="100"
+                                       horizontal="0"/>
+                        }
+                        rightColumn={
+                            <Paragraph text={"Dans le cadre de la ressource R4.A.10 - Compléments web"}
+                                       size={4}
+                                       vertical="100"
+                                       horizontal="100"/>
+                        }/>
                 </Slide>,
         () =>   <Slide>
-                    <Title text="Voici un Titre au centre" align="center" size={4} />
-                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" align="right" />
-                </Slide>,
-        () =>   <Slide>
-                    <Title text="Voici un Titre à gauche" align="left" size={4} />
-                    <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à droite" align="right" />
-                </Slide>,
-        () =>   <Slide>
-                    <Title text="Voici un Titre au centre" align="center" size={9} />
-                    <Image filePath={presentationImg} imgName="Presentation" align="left" size={32} />
-                </Slide>,
-        () =>   <Slide>
-                    <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. 
-                    Proin blandit sit amet velit dictum fermentum. Sed pellentesque condimentum dolor quis consequat. Maecenas gravida efficitur tellus, 
-                    nec pellentesque enim facilisis luctus. Aenean scelerisque, lacus vel accumsan pellentesque, lectus tellus blandit purus, quis molestie 
-                    diam eros quis sapien. Duis eu maximus justo, ac rutrum leo. Quisque posuere auctor lacus, et interdum eros interdum sit amet. 
-                    Nunc sed nisl vel neque rutrum sollicitudin. "/>
-                </Slide>,
-        () =>   <Slide>
-                    <List tabElement={["value1","value2","value3"]} type="bulleted" textColor="red" backgroundColor="green" />
-                </Slide>,
-        () =>   <Slide>
-                    <List tabElement={["value1","value2","value3"]} type="decimal" />
-                </Slide>,
-        () =>   <Slide>
-                    <List tabElement={["value1","value2","value3"]} />
-                </Slide>,
-        () =>   <Slide>
-                    <Table tabElement={[["1.1","1.2","1.3","1.4","1.5","1.6"],
-                                        ["2.1","2.2","2.3","2.4","2.5","2.6"],
-                                        ["3.1","3.2","3.3","3.4","3.5","3.6"],
-                                        ["4.1","4.2","4.3","4.4","4.5","4.6"],
-                                        ["5.1","5.2","5.3","5.4","5.5","5.6"],
-                                        ["6.1","6.2","6.3","6.4","6.5","6.6"]]} textColor="red" />
-                </Slide>,
-        () =>   <Slide>
-                    <TwoColumn 
-                    leftColumn={[
-                        <Title text="Voici un Titre au centre" align="center" size={2} />,
-                        <Image filePath={presentationImg} imgName="Presentation" align="left" backgroundColor="lightBlue" />
-                    ]}
-                    rightColumn={[
-                        <Figure filePath={presentationImg} imgName="Presentation" text="Voici une image à gauche" align="left" textSize={6} textColor="lightBlue" backgroundColor="purple" imgBackgroundColor="yellow" />,
-                        <Paragraph text="Aenean laoreet varius ipsum, sed vestibulum erat sagittis quis. Donec euismod odio quam. Nulla eu sapien neque. 
-                        Proin blandit sit amet velit dictum fermentum. Sed pellentesque condimentum dolor quis consequat. Maecenas gravida efficitur tellus, 
-                        nec pellentesque enim facilisis luctus. Aenean scelerisque, lacus vel accumsan pellentesque, lectus tellus blandit purus, 
-                        quis molestie diam eros quis sapien. Duis eu maximus justo, ac rutrum leo. Quisque posuere auctor lacus, et interdum eros interdum sit amet. 
-                        Nunc sed nisl vel neque rutrum sollicitudin." textColor="fuchsia" backgroundColor="darkPink" />
-                    ]}
-                    />
-                </Slide>,
-        () =>   <Slide>
-                    <TwoColumn 
-                        leftColumn={[
-                            <Title text="Voici les couleurs de texte" />,
-                            ...Object.keys(textColorStyle).map(colorName => (
-                                <Paragraph text={colorName} textColor={colorName} size={16} />
-                            ))
-                        ]}
-                        rightColumn={[
-                            <Title text="Voici les couleurs de background" />,
-                            ...Object.keys(textColorStyle).map(colorName => (
-                                <Paragraph text={colorName} textColor="white" backgroundColor={colorName} size={16} />
-                            ))
-                        ]}
-                    />
+                    
                 </Slide>,
         () =>   <Slide>
             <Title text={"Voici une page en Markdown"} size={8} align="center"/>
@@ -141,42 +98,6 @@ greet("World");
                         }/>
                     }
                     />
-                </Slide>,
-        () =>   <Slide>
-                    <Title text={"Voici le Composant permettant d'afficher du code"} size={8}/>
-                    <br/>
-                    <Code language="cpp" theme="" code={
-`
-#include <iostream>
-#include <string>
-
-class Voiture {
-private:
-    std::string marque;
-    std::string modele;
-    int annee;
-
-public:
-    Voiture(std::string m, std::string mod, int an) : marque(m), modele(mod), annee(an) {}
-
-    std::string getMarque() const {
-        return marque;
-    }
-
-    void setMarque(const std::string &m) {
-        marque = m;
-    }
-
-    std::string getModele() const {
-        return modele;
-    }
-
-    void setModele(const std::string &mod) {
-        modele = mod;
-    }
-};
-`
-                    }/>
                 </Slide>
     ];
 

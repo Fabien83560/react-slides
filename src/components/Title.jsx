@@ -1,10 +1,13 @@
 import classNames from "classnames";
-import { textStyle , textPositionStyle, textColorStyle, backgroundColorStyle } from "../css/style";
+import { horizontalAlign, verticalAlign, textSize ,textColorStyle, backgroundColorStyle } from "../css/style";
 
-export default function Title({ text, align = "center" , size = 5 , textColor , backgroundColor }) {
+export default function Title({ text, horizontal, vertical, size = 8 , textColor , backgroundColor }) {
     
-    let containerStyle = classNames(`${textStyle[size]} ${textPositionStyle[align]} ${textColorStyle[textColor]} ${backgroundColorStyle[backgroundColor]}`);
+    let containerStyle = classNames(`fixed text-justify ${horizontalAlign[horizontal]} ${verticalAlign[vertical]} ${textSize[size]} ${textColorStyle[textColor]} ${backgroundColorStyle[backgroundColor]}`);
     return (
-        <h1 className={containerStyle}>{text}</h1>
+        <>
+            <h1 className={containerStyle}>{text}</h1>
+            <br/>
+        </>
     );
 }

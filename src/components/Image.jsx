@@ -1,9 +1,9 @@
 import classNames from "classnames";
 
-import {imageStyle, itemPositionStyle, backgroundColorStyle} from '../css/style.js'
+import { horizontalAlign,verticalAlign,imageSize,backgroundColorStyle} from '../css/style.js'
 
-export default function Image({ filePath, imgName = "", align = "center" , size = 32, backgroundColor }) {
-    let containerStyle = classNames(`flex flex-col ${imageStyle[size]} ${itemPositionStyle[align]} ${backgroundColorStyle[backgroundColor]}`);
+export default function Image({ filePath, imgName = "", horizontal, vertical, size = 32, backgroundColor }) {
+    let containerStyle = classNames(`fixed ${horizontalAlign[horizontal]} ${verticalAlign[vertical]} ${imageSize[size]} ${backgroundColorStyle[backgroundColor]}`);
     return (
         <img src={filePath} alt={imgName} className={containerStyle} />
     );

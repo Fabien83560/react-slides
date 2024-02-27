@@ -96,7 +96,48 @@ export default function App() {
                     />
                 </Slide>,
         () =>   <Slide>
-                    <Markdown />
+            <Title text={"Voici une page en Markdown"} size={8} position="center"/>
+                    <TwoColumn 
+                    leftColumn={
+                        <Markdown markdownText={
+`
+# Titre principal
+
+Ceci est un paragraphe en **Markdown**!
+
+## Sous-titre
+
+- Une liste
+- Avec quelques éléments
+- Un autre élément
+
+### Un peu de code
+
+\`\`\`javascript
+const example = "Ceci est un exemple de code";
+console.log(example);
+\`\`\`
+
+> Ceci est une citation.
+
+[Un lien](https://wikipedia.com)
+`
+                                                } />
+                                                
+                    }
+                    rightColumn={
+                        <Markdown markdownText={
+`
+![Une image](/src/assets/presentation.png)
+
+**Texte en gras** et *texte en italique*.
+
+- [ ] Tâche non complétée
+- [x] Tâche complétée
+`
+                        }/>
+                    }
+                    />
                 </Slide>
     ];
 

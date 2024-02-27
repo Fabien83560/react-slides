@@ -1,36 +1,7 @@
+import React from 'react';
 import ReactMarkdown from 'react-markdown'
 
-export default function Markdown({ }) {
-    const text = `
-# Titre principal
-
-Ceci est un paragraphe en **Markdown**!
-
-## Sous-titre
-
-- Une liste
-- Avec quelques éléments
-- Un autre élément
-
-### Un peu de code
-
-\`\`\`javascript
-const example = "Ceci est un exemple de code";
-console.log(example);
-\`\`\`
-
-> Ceci est une citation.
-
-[Un lien](http://example.com)
-
-![Une image](/src/assets/presentation.png)
-
-**Texte en gras** et *texte en italique*.
-
-- [ ] Tâche non complétée
-- [x] Tâche complétée
-
-`;
+export default function Markdown({ markdownText }) {
 
     // Styles Tailwind pour chaque type d'élément Markdown
     const components = {
@@ -64,6 +35,6 @@ console.log(example);
     };
 
     return (
-        <ReactMarkdown components={components}>{text}</ReactMarkdown>
+        <ReactMarkdown components={components}>{markdownText}</ReactMarkdown>
     );
 }

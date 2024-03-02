@@ -170,9 +170,6 @@ function greet(name) {
 greet("World");
 \`\`\`
 
-> Ceci est une citation.
-
-[Un lien vers la documentation de JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
 `
                                                 } />
                                                 
@@ -180,12 +177,11 @@ greet("World");
                     rightColumn={
                         <Markdown markdownText={
 `
-![Une image](/src/assets/presentation.png)
+> Ceci est une citation.
+
+[Un lien vers la documentation de JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
 
 **Texte en gras** et *texte en italique*.
-
-- [ ] Tâche non complétée
-- [x] Tâche complétée
 `
                         }/>
                     }

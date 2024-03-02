@@ -7,7 +7,7 @@ import Button from "./Button";
 export default function ToolBar() {
     const { isFullScreen, toggleFullScreen, setIsFullScreen } = useFullScreen();
     const { currentSlide, maxSlides, goToSlide, incrementCurrentSlide, decrementCurrentSlide } = useSlideCount();
-    const { toggleShowSlideNumber } = useShowSlideNumber();
+    const { showSlideNumber, toggleShowSlideNumber } = useShowSlideNumber();
     const [isVisible, setIsVisible] = useState(false);
     const [inputShown, setInputShown] = useState(false);
     const [inputValue, setInputValue] = useState(currentSlide);
@@ -118,7 +118,7 @@ export default function ToolBar() {
                     <Button onClick={() => goToSlide(maxSlides)} text=">>" transparent={true} textColor={buttonTextColor} />
                 </div>
 
-                <Button text="Hide Slide Number" onClick={toggleShowSlideNumber} transparent={true} textColor={buttonTextColor} />
+                <Button text={(showSlideNumber) ? "Hide Slide Number" : "Show Slide Number"} onClick={toggleShowSlideNumber} transparent={true} textColor={buttonTextColor} />
             </div>
         </nav>
     );

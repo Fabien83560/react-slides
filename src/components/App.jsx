@@ -35,13 +35,13 @@ export default function App() {
                             size={56}
                             horizontal="40"
                             vertical={20}/>
-                    <Paragraph text={"Sur cette présentation, vous trouverez des exemples d'utilisations de cet outil. Cette présentation a aussi été réalisé a l'aide de l'outil."} 
+                    <Paragraph text={"Sur cette présentation, vous trouverez des exemples d'utilisations de cet outil. Cette présentation a été réalisé a l'aide de l'outil."} 
                             size={6}
                             vertical="80"
                             horizontal="50" />
                     <TwoColumn
                         leftColumn={
-                            <Paragraph text={"Cet outil a été réalisé par ORTEGA Fabien"}
+                            <Paragraph text={"Réalisé par ORTEGA Fabien"}
                                        size={4}
                                        vertical="100"
                                        horizontal="0"/>
@@ -54,10 +54,25 @@ export default function App() {
                         }/>
                 </Slide>,
         () =>   <Slide>
+                    <Title text={"Fonctionnalités disponnibles"} horizontal={50} textColor={"red"}/>
+                    <Paragraph text={"Le bouton 'Hide Number Slide' situé à droite de la barre de navigation permet de Cacher ou de montrer le numéro de la diapositive actuelle."} size={3} vertical={20}/>
+                    <Paragraph text={"Le bouton 'Full Screen' situé à gauche de la barre de navigation permet de Mettre le visualisateur de diapositive en plein écran."} size={3} vertical={30} />
+                    <Paragraph text={"Les boutons situé au centre de la barre de navigation permettent de changer de diapositive : "} size={3} vertical={40}/>
+                    <List type={"bulleted"}
+                          vertical={60}
+                          horizontal={10}
+                          tabElement={["<< : Permet d'afficher la première diapositive",
+                                       "< : Permet d'afficher la diapositive précédente",
+                                       "n°? / max : Permet de saisir la diapositive à afficher",
+                                       "> : Permet d'afficher la diapositive suivante",
+                                       ">> : Permet d'afficher la dernière diapositive"]}/>
+                    <Paragraph text={'La mosaïque permet elle aussi permet de changer de diapositive et aussi de connaître la diapositive actuelle.'} size={3} vertical={80}/>
+            </Slide>,
+        () =>   <Slide>
                     <Title text={"Voici des titres avec plusieurs tailles"} size={10} textColor={"red"}/>
-                    <Title text={"Voici un autre Titre aligné a droite et a la vertical"} size={6} horizontal={90} vertical={20} />
+                    <Title text={"Voici un autre Titre aligné à droite et à la vertical"} size={6} horizontal={90} vertical={20} />
                     <Title text={"Voici un titre au centre coloré en jaune avec un fond violet"} size={3} horizontal={50} vertical={50} textColor={"yellow"} backgroundColor={"purple"} />
-                    <Paragraph text={"Voici un paragraphe qui présente brievement les options de personalisation possible, pour les Titres et les Paragraphe, il y a plusieurs 'props' disponnibles comment la taille, l'alignement vertical et horizontal ainsi que la couleur du texte et la couleur du fond."} 
+                    <Paragraph text={"Voici un paragraphe qui présente brievement les options de personnalisation possible, pour les Titres et les Paragraphe, il y a plusieurs 'props' disponnibles comment la taille, l'alignement vertical et horizontal ainsi que la couleur du texte et la couleur du fond."} 
                                size={4}
                                vertical={70}/>
                 </Slide>,
@@ -72,12 +87,12 @@ export default function App() {
                         rightColumn={[
                             <Title text={"Voici une liste a numérotée"} size={6} vertical={20} />,
                             <List type={"decimal"} tabElement={["value1","value2","value3"]} vertical={30} textColor={"yellow"}/>,
-                            <Paragraph text={"Pour obtenir une liste a puces, il faut mettre la 'props' type à 'decimal'"} vertical={50}/>,
+                            <Paragraph text={"Pour obtenir une liste numérotée, il faut mettre la 'props' type à 'decimal'"} vertical={50}/>,
                             <Paragraph text={"Il est toujours possible de coloré le texte des listes avec la 'props' textColor"} vertical={60}/>
                         ]}
                     />
-                    <Paragraph text={"Cette affichage a par la même occasion été réalisé a l'aide de l'affichage par deux colonnes."} size={6} vertical={80}/>
-                    <Paragraph text={"L'affichage par deux colonnes possède deux 'props' la première étant 'leftColumn' qui correspond a la colonne de gauche puis 'rightColumn' qui correspond à la colonnes de droite."} size={4} vertical={90} textColor={"orange"} />
+                    <Paragraph text={"Cette affichage a été réalisé a l'aide de l'affichage par deux colonnes."} size={6} vertical={80}/>
+                    <Paragraph text={"L'affichage par deux colonnes possède deux 'props' la première étant 'leftColumn' qui correspond à la colonne de gauche puis 'rightColumn' qui correspond à la colonnes de droite."} size={4} vertical={90} textColor={"orange"} />
                 </Slide>,
         () =>   <Slide>
                     <Title text={"Images et Figures"} textColor={"red"} horizontal={50}/>
@@ -102,8 +117,7 @@ export default function App() {
                             ["Développement","7","0","7,5","18,75"],
                             ["Droit","9","6","17","6,5"],
                             ["Anglais","20","3","10,5","7"],
-                            ["Cantine","19,5","17","14,5","13"],
-                            ["Moyenne","10,67","6,41","14,67","11,87"]
+                            ["Moyenne","8,9","4,3","14,7","11,65"]
                         ]}/>
                 </Slide>,
         () =>   <Slide>

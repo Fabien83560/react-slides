@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from "classnames";
 import { horizontalAlign, verticalAlign, textSize ,textColorStyle, backgroundColorStyle } from "../css/style";
 

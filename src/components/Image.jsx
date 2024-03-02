@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from "classnames";
 
 import { horizontalAlign,verticalAlign,imageSize,backgroundColorStyle} from '../css/style.js'

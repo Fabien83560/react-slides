@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function Button({ text, onClick, transparent , textColor }) {
     let baseClasses = "py-2 px-4 rounded ";
     let styleClasses;

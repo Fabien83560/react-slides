@@ -1,8 +1,9 @@
+import React from 'react';
 import classNames from "classnames";
-import { textColorStyle } from "../css/style.js";
+import { horizontalAlign, verticalAlign, textColorStyle } from "../css/style.js";
 
-export default function Table({ tabElement, textColor }) {
-    let otherStyle = classNames(` ${textColorStyle[textColor]}`);
+export default function Table({ tabElement, horizontal, vertical, textColor }) {
+    let otherStyle = classNames(` ${horizontalAlign[horizontal]} ${verticalAlign[vertical]} ${textColorStyle[textColor]}`);
     return (
         <table className={`min-w-full divide-y divide-gray-200 shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ${otherStyle}`}>
             <tbody className="bg-white divide-y divide-gray-200">

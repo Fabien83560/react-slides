@@ -1,8 +1,6 @@
-import { useSlideCount } from '../context/SlideCountContext.jsx';
+import React from 'react';
 
-export default function Slide({ children }) {
-    const { currentSlide } = useSlideCount();
-    
+export default function Slide({ children }) {    
     return (
         <div className="relative h-full">
             <div className="m-5">

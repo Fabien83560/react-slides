@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useFullScreen } from '../context/FullScreenContext.jsx';
 import { useSlideCount } from '../context/SlideCountContext';
 import { useShowSlideNumber } from '../context/ShowSlideNumberContext.jsx';

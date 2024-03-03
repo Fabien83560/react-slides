@@ -7,8 +7,10 @@ export default function Code({ language = 'javascript', theme = "vscDarkPlus", c
     const themeStyle = styles[theme] || styles.vscDarkPlus;
 
     return (
-        <SyntaxHighlighter language={language} style={themeStyle}>
-            {code}
-        </SyntaxHighlighter>
+        <div className='inline-block'>
+            <SyntaxHighlighter language={language} style={themeStyle}>
+                {code}
+            </SyntaxHighlighter>
+        </div>
     );
 }

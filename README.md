@@ -1,9 +1,9 @@
 # Visualisateur de Diapositive
-## ORTEGA Fabien
+## **<u>ORTEGA Fabien</u>**
 
 ###  <u>Initialisation</u>
 
-Afin de pouvoir initialiser le projet, il faut lancer les commandes suivantes :
+Afin de pouvoir initialiser le projet, il faut lancer les commandes suivantes dans le répertoire du projet :
 
 ``` bash
 npm install

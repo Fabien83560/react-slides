@@ -15,9 +15,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --tag my-react-app
 
-    - name: Create Dist Directory
-      run: mkdir dist
-
     - name: Copy build output to host
       run: |
         docker run --name temp-container my-react-app

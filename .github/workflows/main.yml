@@ -16,6 +16,11 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
+          echo "Node.js version:"
+          node --version
+          echo "npm version:"
+          npm --version
+          
           cd /var/www/html/react-slides
           git pull origin main
           git status

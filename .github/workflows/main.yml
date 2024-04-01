@@ -1,28 +1,32 @@
-name: Deploy
+name: Build and Deploy
 
 on:
   push:
     branches: [main]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Deploy using ssh
-      uses: appleboy/ssh-action@master
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Build the Docker image
+      run: docker build . --tag my-react-app
+
+    - name: Create Dist Directory
+      run: mkdir dist
+
+    - name: Copy build output to host
+      run: docker run --rm --volume $PWD/dist:/dist my-react-app cp -r /app/dist /dist
+
+    - name: Deploy to Server
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
-        script: |
-          echo "Node.js version:"
-          node --version
-          echo "npm version:"
-          npm --version
-          
-          cd /var/www/html/react-slides
-          git pull origin main
-          git status
-          npm install
-          npm run build
+        source: "dist/*"
+        target: "/var/www/html/react-slides"

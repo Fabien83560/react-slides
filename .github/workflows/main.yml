@@ -16,7 +16,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         script: |
-          cd /var/www/html/fabien/react-slides
+          cd /var/www/html/react-slides
           git pull origin main
           git status
           npm install

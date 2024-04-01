@@ -19,7 +19,10 @@ jobs:
       run: mkdir dist
 
     - name: Copy build output to host
-      run: docker run --rm --volume $PWD/dist:/dist my-react-app cp -r /app/dist /dist
+      run: |
+        docker run --name temp-container my-react-app
+        docker cp temp-container:/app/dist ./dist
+        docker rm temp-container
 
     - name: Deploy to Server
       uses: appleboy/scp-action@master

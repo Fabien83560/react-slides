@@ -30,3 +30,4 @@ jobs:
         port: 22
         source: "dist/*"
         target: "/var/www/html/react-slides"
+

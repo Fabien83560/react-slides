@@ -1,20 +1,20 @@
-# Visualisateur de Diapositive
-## **<u>ORTEGA Fabien</u>**
+# Slide Viewer
+## **<u>Fabien ORTEGA</u>**
 
-###  <u>Initialisation</u>
+### <u>Initialization</u>
 
-Afin de pouvoir initialiser le projet, il faut lancer les commandes suivantes dans le répertoire du projet :
+To initialize the project, run the following commands in the project directory:
 
-``` bash
+```bash
 npm install
 npm run build
 npm run preview
 ```
 
-### <u>Création de nouvelles diapositives</u>
+### <u>Creating New Slides</u>
 
-Pour créer de nouvelles diapositives, il suffit de rajouter un élément dans le tableau nommé <u>slides</u> situé dans le fichier **src/components/App.jsx**.
-De multiples composants sont à votre disposition :
+To create new slides, simply add an element to the array named <u>slides</u> located in the file **src/components/App.jsx**.
+Multiple components are available for use:
 - Title
 - Paragraph
 - Image
@@ -25,4 +25,4 @@ De multiples composants sont à votre disposition :
 - Code
 - Markdown
 
-Chacun de ces composants ont leurs propres propriétés afin de pouvoir les ajuster comme voulu.
+Each of these components has its own properties to adjust them as needed.
